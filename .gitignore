@@ -1,0 +1,29 @@
+# ============ Python Backend ============
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.env
+*.egg-info/
+
+# db.json contains user passwords — never commit!
+backend/db.json
+
+# ============ Node / Frontend ============
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+.DS_Store
+
+# ============ Logs ============
+*.log
+npm-debug.log*
+
+# ============ Editor ============
+.vscode/
+.idea/
+*.swp
