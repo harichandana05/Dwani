@@ -79,6 +79,15 @@ SWARAS = {
     "Ni3": 493.88
 }
 
+@app.route('/', methods=['GET'])
+def index():
+    return jsonify({
+        "app": "Dwani – Carnatic Music Learning API",
+        "status": "✅ Live",
+        "version": "1.0.0",
+        "endpoints": ["/api/auth/login", "/api/auth/register", "/api/progress/<username>", "/api/chatbot", "/api/analyze-pitch", "/api/profile-voice"]
+    })
+
 @app.route('/api/auth/login', methods=['POST'])
 def login():
     data = request.json
