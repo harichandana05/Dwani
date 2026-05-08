@@ -24,7 +24,10 @@ app = Flask(__name__)
 _origins = os.environ.get('ALLOWED_ORIGINS', '*')
 CORS(app, origins=_origins.split(',') if _origins != '*' else '*')
 
-DB_FILE = 'db.json'
+# On Render, the persistent disk is mounted at /opt/render/project/src
+# In local dev, this env var is not set so we fall back to the current directory.
+_DATA_DIR = os.environ.get('RENDER_VOLUME_PATH', os.path.dirname(os.path.abspath(__file__)))
+DB_FILE = os.path.join(_DATA_DIR, 'db.json')
 
 def load_db():
     if os.path.exists(DB_FILE):
